@@ -43,7 +43,7 @@ export function renderCategories(
 
     // Changing UI (CheckMark & Done) and saving everything to LocalStorage
     if (todosDone.length !== 0 && todosDone.length === allTodos.length) {
-      categoryContainer.classList.add("bg-gray-700");
+      categoryContainer.classList.add("bg-gray-600/30");
       checkMarkElement.innerText = "✅";
       checkMarkElement.classList.add(
         "absolute",
@@ -66,7 +66,7 @@ export function renderCategories(
     secondP.innerText = `${todosDone.length || 0} / ${allTodos.length} Done`;
 
     editBtnContainer.innerHTML = `
-    <button class="btn btn-sm btn-primary absolute top-5 right-5 px-5 sm:static" id="edit_category_btn${index}">
+    <button class="btn btn-sm btn-primary absolute bottom-16 right-5 px-5 sm:static" id="edit_category_btn${index}">
         Edit
       </button>
       <dialog id="edit_category_dialog${index}" class="modal">
@@ -97,7 +97,7 @@ export function renderCategories(
       "btn-sm",
       "btn-secondary",
       "absolute",
-      "top-16",
+      "bottom-5",
       "right-5",
       "sm:static"
     );
