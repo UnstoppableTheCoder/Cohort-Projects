@@ -1,0 +1,222 @@
+export const todos = [
+  ...(JSON.parse(localStorage.getItem("todos")) || [
+    // Work
+    {
+      id: "todo-1001",
+      name: "Finish project report",
+      description: "Submit the Q2 project report to the manager",
+      isDone: false,
+      category: "1d3f-cat-work",
+      createdAt: "2025-07-19T09:10:00.000Z",
+    },
+    {
+      id: "todo-1002",
+      name: "Team meeting",
+      description: "Zoom call with marketing team at 11 AM",
+      isDone: true,
+      category: "1d3f-cat-work",
+      createdAt: "2025-07-19T11:00:00.000Z",
+    },
+    {
+      id: "todo-1003",
+      name: "Reply to emails",
+      description: "Respond to client queries",
+      isDone: false,
+      category: "1d3f-cat-work",
+      createdAt: "2025-07-19T13:30:00.000Z",
+    },
+    {
+      id: "todo-1004",
+      name: "Prepare presentation",
+      description: "Slides for monthly review meeting",
+      isDone: false,
+      category: "1d3f-cat-work",
+      createdAt: "2025-07-18T16:00:00.000Z",
+    },
+    {
+      id: "todo-1005",
+      name: "Backup files",
+      description: "Backup all important office files to drive",
+      isDone: true,
+      category: "1d3f-cat-work",
+      createdAt: "2025-07-17T19:00:00.000Z",
+    },
+
+    // Personal
+    {
+      id: "todo-1006",
+      name: "Buy groceries",
+      description: "Milk, Eggs, Bread, Fruits",
+      isDone: false,
+      category: "2a9b-cat-personal",
+      createdAt: "2025-07-18T18:30:00.000Z",
+    },
+    {
+      id: "todo-1007",
+      name: "Pay electricity bill",
+      description: "Due by 21st July",
+      isDone: false,
+      category: "2a9b-cat-personal",
+      createdAt: "2025-07-18T20:00:00.000Z",
+    },
+    {
+      id: "todo-1008",
+      name: "Call plumber",
+      description: "Fix kitchen tap",
+      isDone: true,
+      category: "2a9b-cat-personal",
+      createdAt: "2025-07-18T22:00:00.000Z",
+    },
+    {
+      id: "todo-1009",
+      name: "Clean bedroom",
+      description: "Organize shelves and vacuum floor",
+      isDone: false,
+      category: "2a9b-cat-personal",
+      createdAt: "2025-07-17T09:30:00.000Z",
+    },
+    {
+      id: "todo-1010",
+      name: "Schedule doctor appointment",
+      description: "Annual health checkup",
+      isDone: false,
+      category: "2a9b-cat-personal",
+      createdAt: "2025-07-16T12:15:00.000Z",
+    },
+
+    // Fitness
+    {
+      id: "todo-1011",
+      name: "Morning run",
+      description: "Run 5km in the park",
+      isDone: true,
+      category: "3b7d-cat-fitness",
+      createdAt: "2025-07-17T06:00:00.000Z",
+    },
+    {
+      id: "todo-1012",
+      name: "Push-ups",
+      description: "Do 3 sets of 20 reps",
+      isDone: false,
+      category: "3b7d-cat-fitness",
+      createdAt: "2025-07-17T07:15:00.000Z",
+    },
+    {
+      id: "todo-1013",
+      name: "Yoga session",
+      description: "Join online yoga at 8 AM",
+      isDone: true,
+      category: "3b7d-cat-fitness",
+      createdAt: "2025-07-18T08:00:00.000Z",
+    },
+    {
+      id: "todo-1014",
+      name: "Drink more water",
+      description: "Target 3 liters today",
+      isDone: false,
+      category: "3b7d-cat-fitness",
+      createdAt: "2025-07-18T09:00:00.000Z",
+    },
+    {
+      id: "todo-1015",
+      name: "Stretch before bed",
+      description: "10-minute full body stretch",
+      isDone: false,
+      category: "3b7d-cat-fitness",
+      createdAt: "2025-07-16T23:00:00.000Z",
+    },
+
+    // Learning
+    {
+      id: "todo-1016",
+      name: "Read JS book",
+      description: "Eloquent JavaScript – Chapter 6",
+      isDone: true,
+      category: "4c8f-cat-learning",
+      createdAt: "2025-07-16T21:45:00.000Z",
+    },
+    {
+      id: "todo-1017",
+      name: "Watch React tutorial",
+      description: "Finish episode 3 of beginner series",
+      isDone: false,
+      category: "4c8f-cat-learning",
+      createdAt: "2025-07-16T22:30:00.000Z",
+    },
+    {
+      id: "todo-1018",
+      name: "Revise Java concepts",
+      description: "Inheritance and Interfaces",
+      isDone: false,
+      category: "4c8f-cat-learning",
+      createdAt: "2025-07-17T14:10:00.000Z",
+    },
+    {
+      id: "todo-1019",
+      name: "Practice coding",
+      description: "Solve 2 Leetcode problems",
+      isDone: true,
+      category: "4c8f-cat-learning",
+      createdAt: "2025-07-17T20:20:00.000Z",
+    },
+    {
+      id: "todo-1020",
+      name: "Take notes",
+      description: "Summarize today's learning topics",
+      isDone: false,
+      category: "4c8f-cat-learning",
+      createdAt: "2025-07-17T21:45:00.000Z",
+    },
+  ]),
+];
+
+export const categories = JSON.parse(localStorage.getItem("categories")) || [
+  {
+    id: "1d3f-cat-work",
+    name: "Work",
+    icon: "💼",
+    createdAt: "2025-07-19T08:00:00.000Z",
+    isDone: false,
+  },
+  {
+    id: "2a9b-cat-personal",
+    name: "Personal",
+    icon: "🏠",
+    createdAt: "2025-07-18T10:15:00.000Z",
+    isDone: false,
+  },
+  {
+    id: "3b7d-cat-fitness",
+    name: "Fitness",
+    icon: "🏋️",
+    createdAt: "2025-07-17T13:45:00.000Z",
+    isDone: false,
+  },
+  {
+    id: "4c8f-cat-learning",
+    name: "Learning",
+    icon: "📘",
+    createdAt: "2025-07-16T09:30:00.000Z",
+    isDone: false,
+  },
+];
+
+export const state = JSON.parse(localStorage.getItem("state")) || {
+  selectedCategory: null,
+};
+
+export const icons = [
+  "😀",
+  "😇",
+  "🥰",
+  "🫶🏻",
+  "✍🏻",
+  "⚽",
+  "🥇",
+  "🏆",
+  "🎗",
+  "📲",
+  "💻",
+  "❤",
+  "🔆",
+];
