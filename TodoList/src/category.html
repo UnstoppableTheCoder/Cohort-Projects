@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo App</title>
+    <link href="./styles/output.css" rel="stylesheet" />
+  </head>
+  <body class="sm:px-10 md:px-16 lg:px-20 xl:px-32 px-5 pt-10">
+    <h1 class="text-center text-3xl sm:text-4xl font-bold">
+      My Todo Categories
+    </h1>
+
+    <!-- Create and Search -->
+    <div
+      class="flex flex-col gap-5 sm:flex-row items-center justify-between mt-10"
+    >
+      <!-- Create New Category -->
+      <button class="btn bg-success" id="create_category_btn">
+        Create New Category
+      </button>
+      <dialog id="create_category_dialog" class="modal">
+        <div class="modal-box space-y-5">
+          <h2 class="font-bold text-center text-xl">Create New Category</h2>
+          <div class="w-full">
+            <span>Name:</span>
+            <input
+              type="text"
+              class="input focus:outline-none focus:ring-0 focus:border-gray-500 w-full"
+              id="create_category_input"
+              placeholder="Enter new category..."
+            />
+          </div>
+          <div class="modal-action">
+            <button class="btn" id="add_category_btn">Add</button>
+            <form method="dialog">
+              <button class="btn" id="category_modal_cancel_btn">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- Search Category -->
+      <div class="flex">
+        <input
+          type="text"
+          placeholder="Type here to search"
+          class="input focus:outline-none focus:ring-0 border-primary text-white rounded-r-none rounded-l-full pl-5"
+          id="category_search_input"
+        />
+        <button
+          class="btn btn-primary rounded-l-none rounded-r-full"
+          id="category_search_btn"
+        >
+          Search Todos
+        </button>
+      </div>
+    </div>
+
+    <!-- Sort & All Categories Btns -->
+    <div class="flex items-center gap-1 mt-5">
+      <!-- Sort By -->
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn m-1 bg-gray-500">
+          Sort By
+        </div>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm bg-gray-700"
+          id="sorting_options"
+        >
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="name"
+              id="primary_option_name"
+              >Name</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="date"
+              id="primary_option_date"
+              >Date</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="done"
+              id="primary_option_done"
+              >Done</a
+            >
+          </li>
+
+          <hr class="my-5 text-gray-700" />
+
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="asc"
+              id="secondary_option_asc"
+              >ASC</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="des"
+              id="secondary_option_des"
+              >DES</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="reset"
+              id="secondary_option_reset"
+              >Reset</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gray-500 btn m-1" id="all_categories">All Categories</div>
+    </div>
+
+    <!-- Categories -->
+    <div
+      class="mt-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+      id="categories_container"
+    ></div>
+
+    <script type="module" src="./scripts/category.js"></script>
+  </body>
+</html>

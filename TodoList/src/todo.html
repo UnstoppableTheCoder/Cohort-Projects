@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo App</title>
+    <link href="./styles/output.css" rel="stylesheet" />
+  </head>
+
+  <body class="px-5 md:px-16 lg:px-24 xl:px-32 py-10 w-screen">
+    <h1 class="text-center text-3xl sm:text-4xl font-bold mt-5">My Todos</h1>
+    <h2
+      class="mt-5 font-bold text-3xl sm:text-4xl text-center italic bg-gradient-to-r from-slate-500 light:from-gray-400 to-slate-800 pt-2 pb-4 px-4 rounded-full mx-auto text-gray-200"
+      id="category_name"
+    ></h2>
+
+    <!-- Create and Search -->
+    <div class="flex mt-10 flex-col gap-5 sm:flex-row sm:justify-between">
+      <!-- Create New Todo -->
+      <button class="btn bg-success" id="create_todo_btn">
+        Create New Todo
+      </button>
+      <dialog id="create_todo_dialog" class="modal">
+        <div class="modal-box space-y-5">
+          <h2 class="font-bold text-center text-xl">Create New Todo</h2>
+          <div class="w-full">
+            <span class="">Name:</span> <br />
+            <input
+              type="text"
+              class="input focus:outline-none focus:ring-0 focus:border-gray-500 w-full"
+              placeholder="Enter Todos..."
+              id="add_todo_input"
+            />
+          </div>
+          <div class="w-full">
+            <span class="">Description:</span> <br />
+            <input
+              type="text"
+              class="input focus:outline-none focus:ring-0 focus:border-gray-500 w-full"
+              placeholder="Enter Description..."
+              id="add_description_input"
+            />
+          </div>
+          <div class="modal-action">
+            <button class="btn" id="add_btn">Add</button>
+            <form method="dialog">
+              <button class="btn" id="add_modal_cancel_btn">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- Search Todo -->
+      <div class="flex">
+        <input
+          type="text"
+          placeholder="Type here to search"
+          id="todo_search_input"
+          class="input focus:outline-none focus:ring-0 border-primary text-white rounded-r-none rounded-l-full pl-5 flex-1"
+        />
+        <button
+          class="btn btn-primary rounded-l-none rounded-r-full text-3xl before:content-['🔍'] sm:before:content-['Search_Todos'] sm:text-lg"
+          id="todo_search_btn"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Sort By, All Todos & Progress-->
+    <div class="flex flex-col sm:flex-row items-center w-full">
+      <!-- Sort & all Todos btn -->
+      <div
+        class="dropdown mt-5 flex w-full items-center justify-between sm:justify-normal"
+      >
+        <div
+          tabindex="0"
+          role="button"
+          class="btn m-1 bg-gray-500"
+          id="sort_by_btn"
+        >
+          Sort By
+        </div>
+
+        <div class="btn m-1 bg-gray-500" id="all_todos">All Todos</div>
+
+        <ul
+          tabindex="0"
+          class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 p-2 shadow-sm bg-gray-800 self-start"
+          id="sorting_options"
+        >
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="name"
+              id="primary_option_name"
+              >Name</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="date"
+              id="primary_option_date"
+              >Date</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="done"
+              id="primary_option_done"
+              >Done</a
+            >
+          </li>
+
+          <hr class="my-5 text-gray-700" />
+
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="asc"
+              id="secondary_option_asc"
+              >ASC</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="des"
+              id="secondary_option_des"
+              >DES</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.activeElement.blur()"
+              data-id="reset"
+              id="secondary_option_reset"
+              >Reset</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Progress -->
+      <div
+        class="flex gap-5 sm:w-[700px] mt-5 bg-gradient-to-r from-slate-500 to-slate-800 py-3 px-5 items-center rounded-lg"
+      >
+        <div class="w-32 font-bold text-3xl" id="todos_progress_score">
+          0 / 0
+        </div>
+        <div class="flex flex-col items-center w-full">
+          <progress
+            class="progress progress-primary w-full h-3"
+            id="todos_progress"
+            value="0"
+            max="100"
+          ></progress>
+          Progress
+        </div>
+      </div>
+    </div>
+
+    <!-- Todos -->
+    <div
+      class="mt-10 w-full space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5"
+      id="todos-container"
+    ></div>
+
+    <script type="module" src="./scripts/todo.js"></script>
+  </body>
+</html>
