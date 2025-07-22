@@ -1,0 +1,17 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Your task is to design and implement a Quiz application that meets the following requirements:",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/styles/input.css -o ./src/styles/output.css"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
