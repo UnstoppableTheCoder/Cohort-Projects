@@ -68,8 +68,6 @@ async function render() {
         credentials: "include",
       }
     );
-    console.log("Fetching");
-    console.log(await res.json());
 
     if (!res.ok) {
       renderPage(formToRender);
