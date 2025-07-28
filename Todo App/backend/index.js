@@ -15,8 +15,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-import cors from "cors";
-
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (like Postman or curl)
