@@ -27,6 +27,7 @@ const todoAddForm = document.getElementById("todo_add_form");
 
 let formToRender = "loginForm";
 let eventListenersAttached = false;
+
 const todoOpt = {
   indexNo: -1,
   isEditingTodo: false,
@@ -91,6 +92,7 @@ async function render() {
     }
 
     renderPage("todosContainer");
+    logoutBtn.classList.remove("hidden");
 
     const resData = await res.json();
     const todos = resData.data.todos;
@@ -128,17 +130,19 @@ async function render() {
               isEditingTodo && indexNo === index ? "hidden" : ""
             }" ${
         todo.isDone ? "disabled cursor-not-allowed pointer-events-none" : ""
-      } id="todo_edit_btn${index}" >Edit</button>
+      } id="todo_edit_btn${index}" >✏️</button>
       
             <button class="cursor-pointer ${
               isEditingTodo && indexNo === index ? "" : "hidden"
             }" ${
         todo.isDone ? "disabled cursor-not-allowed pointer-events-none" : ""
-      } id="todo_save_btn${index}" >Save</button>
+      } id="todo_save_btn${index}" >📂</button>
 
-            <button class="cursor-pointer" id="todo_delete_btn${index}" ${
+            <button class="${
+              isEditingTodo && indexNo === index ? "hidden" : ""
+            } cursor-pointer" id="todo_delete_btn${index}" ${
         todo.isDone ? "disabled cursor-not-allowed pointer-events-none" : ""
-      }>Delete</button>
+      }>❌</button>
           </div>
         </div>
       `;
@@ -171,7 +175,6 @@ async function render() {
           );
 
           console.log(response.data.data.updatedTodo);
-          alert(response.data.message);
           render();
         } catch (error) {
           alert(error.response.data.message);
@@ -190,7 +193,6 @@ async function render() {
           );
 
           console.log(response.data.data.deletedTodo);
-          alert(response.data.message);
           render();
         } catch (error) {
           alert(error.response.data.message);
@@ -241,6 +243,8 @@ async function loginUser(event) {
   event.preventDefault();
 
   try {
+    loginBtn.innerText = "Processing...";
+    loginBtn.disabled = true;
     const email = loginEmail.value;
     const password = loginPassword.value;
 
@@ -267,6 +271,9 @@ async function loginUser(event) {
     render();
   } catch (error) {
     console.log("Login error:", error.message);
+  } finally {
+    loginBtn.innerText = "Login";
+    loginBtn.disabled = false;
   }
 }
 
@@ -275,6 +282,7 @@ async function signupUser(event) {
   event.preventDefault();
 
   try {
+    signupBtn.innerText = "Processing...";
     const email = signupEmail.value;
     const password = signupPassword.value;
     const confirmPassword = signupConfirmPassword.value;
@@ -303,12 +311,16 @@ async function signupUser(event) {
     render();
   } catch (error) {
     console.log("Signup error:", error.message);
+  } finally {
+    signupBtn.innerText = "Sign Up";
   }
 }
 
 // Logout User
 async function logoutUser() {
   try {
+    logoutBtn.innerText = "Processing...";
+
     const res = await fetch(
       `https://backend-for-todo-app-luna.onrender.com/api/v1/users/logout`,
       {
@@ -316,6 +328,9 @@ async function logoutUser() {
         credentials: "include",
       }
     );
+
+    // Hide logoutBtn
+    logoutBtn.classList.add("hidden");
 
     if (!res.ok) {
       const err = await res.json();
@@ -325,6 +340,8 @@ async function logoutUser() {
     render();
   } catch (error) {
     console.log("Logout Error: ", error);
+  } finally {
+    logoutBtn.innerText = "Logout";
   }
 }
 
