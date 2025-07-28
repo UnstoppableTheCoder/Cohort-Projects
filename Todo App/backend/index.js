@@ -15,15 +15,15 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// app.use(
-//   cors({
-//     origin: "*", // e.g. "https://yourfrontend.com"
-//     credentials: true, // Required if using cookies/auth headers
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     optionsSuccessStatus: 200, // Fixes legacy browser issues
-//   })
-// );
+app.use(
+  cors({
+    origin: "*", // e.g. "https://yourfrontend.com"
+    credentials: true, // Required if using cookies/auth headers
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200, // Fixes legacy browser issues
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
