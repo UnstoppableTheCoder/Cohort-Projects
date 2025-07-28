@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 
 const isLoggedIn = asyncHandler(async (req, res, next) => {
   const { token } = req.cookies;
-  console.log(token);
   try {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
 

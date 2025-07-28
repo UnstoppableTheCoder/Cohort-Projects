@@ -40,7 +40,10 @@ connectDB()
       if (process.env.NODE_ENV === "development") {
         console.log(`Server is running on http://localhost:${PORT}`);
       } else {
-        console.log("https://backend-for-todo-app-luna.onrender.com");
+        console.log(
+          "Server is running on" +
+            "https://backend-for-todo-app-luna.onrender.com"
+        );
       }
     });
   })

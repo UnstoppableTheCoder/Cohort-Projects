@@ -95,7 +95,6 @@ export const loginUser = asyncHandler(async (req, res) => {
 });
 
 export const logoutUser = asyncHandler(async (req, res) => {
-  console.log("Logging out the user");
   // Clear the cookie
   res.clearCookie("token", {
     httpOnly: true,
