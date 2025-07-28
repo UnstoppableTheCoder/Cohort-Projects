@@ -41,7 +41,7 @@ todoAddForm.addEventListener("submit", async (event) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/v1/todos",
+      "https://backend-for-todo-app-luna.onrender.com/api/v1/todos",
       {
         task: todoInputEle.value,
       },
@@ -62,9 +62,12 @@ todoAddForm.addEventListener("submit", async (event) => {
 async function render() {
   try {
     // Fetch Todo
-    const res = await fetch("http://localhost:5000/api/v1/todos", {
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://backend-for-todo-app-luna.onrender.com/api/v1/todos",
+      {
+        credentials: "include",
+      }
+    );
 
     if (!res.ok) {
       renderPage(formToRender);
@@ -162,7 +165,7 @@ async function render() {
         try {
           const todoInputName = todoInput.value;
           const response = await axios.put(
-            `http://localhost:5000/api/v1/todos/${todo._id}`,
+            `https://backend-for-todo-app-luna.onrender.com/api/v1/todos/${todo._id}`,
             { task: todoInputName },
             { withCredentials: true }
           );
@@ -180,7 +183,7 @@ async function render() {
       todoDeleteBtn.addEventListener("click", async () => {
         try {
           const response = await axios.delete(
-            `http://localhost:5000/api/v1/todos/${todo._id}`,
+            `https://backend-for-todo-app-luna.onrender.com/api/v1/todos/${todo._id}`,
             {
               withCredentials: true,
             }
@@ -199,7 +202,7 @@ async function render() {
       todoCheckBox.addEventListener("click", async () => {
         try {
           const response = await axios.put(
-            `http://localhost:5000/api/v1/todos/set-done/${todo._id}`,
+            `https://backend-for-todo-app-luna.onrender.com/api/v1/todos/set-done/${todo._id}`,
             {},
             {
               withCredentials: true,
@@ -241,12 +244,15 @@ async function loginUser(event) {
     const email = loginEmail.value;
     const password = loginPassword.value;
 
-    const res = await fetch("http://localhost:5000/api/v1/users/login", {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const res = await fetch(
+      "https://backend-for-todo-app-luna.onrender.com/api/v1/users/login",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     if (!res.ok) {
       const error = await res.json();
@@ -273,12 +279,15 @@ async function signupUser(event) {
     const password = signupPassword.value;
     const confirmPassword = signupConfirmPassword.value;
 
-    const res = await fetch("http://localhost:5000/api/v1/users/signup", {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, confirmPassword }),
-    });
+    const res = await fetch(
+      "https://backend-for-todo-app-luna.onrender.com/api/v1/users/signup",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, confirmPassword }),
+      }
+    );
 
     const data = await res.json();
 
@@ -300,10 +309,13 @@ async function signupUser(event) {
 // Logout User
 async function logoutUser() {
   try {
-    const res = await fetch(`http://localhost:5000/api/v1/users/logout`, {
-      method: "DELETE",
-      credentials: "include",
-    });
+    const res = await fetch(
+      `https://backend-for-todo-app-luna.onrender.com/api/v1/users/logout`,
+      {
+        method: "DELETE",
+        credentials: "include",
+      }
+    );
 
     if (!res.ok) {
       const err = await res.json();
