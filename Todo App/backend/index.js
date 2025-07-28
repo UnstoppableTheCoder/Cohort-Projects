@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN, // e.g. "https://yourfrontend.com"
+    origin: "*", // e.g. "https://yourfrontend.com"
     credentials: true, // Required if using cookies/auth headers
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
