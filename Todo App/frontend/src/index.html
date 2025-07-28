@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify Frontend</title>
+    <link rel="stylesheet" href="./styles/output.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="bg-violet-500 relative">
+    <!-- Logout -->
+    <a
+      id="logout_btn"
+      class="text-violet-700 bg-violet-400 px-4 py-2 absolute rounded-lg top-2 right-2 cursor-pointer"
+      >Logout</a
+    >
+
+    <!-- Signup Form -->
+    <section class="h-screen flex justify-center items-center" id="signup_form">
+      <div class="bg-violet-400 p-8 rounded-lg w-1/2 text-violet-700 space-y-5">
+        <h1 class="text-start font-bold text-3xl">Sign up</h1>
+        <form class="flex flex-col gap-y-3">
+          <label class="text-xl">
+            Email:
+            <input
+              type="email"
+              id="signup_email"
+              class="bg-white rounded-lg text-black px-2 py-2 block mt-2 w-full outline-none"
+            />
+          </label>
+
+          <label class="text-xl">
+            Password:
+            <input
+              type="password"
+              id="signup_password"
+              class="bg-white rounded-lg text-black px-2 py-2 block mt-2 w-full outline-none"
+            />
+          </label>
+
+          <label class="text-xl">
+            Confirm Password:
+            <input
+              type="password"
+              id="signup_confirm_password"
+              class="bg-white rounded-lg text-black px-2 py-2 block mt-2 w-full outline-none"
+            />
+          </label>
+
+          <button
+            type="submit"
+            class="bg-violet-700 text-white font-bold text-xl py-2 rounded-lg"
+            id="signup_btn"
+          >
+            Sign up
+          </button>
+        </form>
+        <p class="text-xl">
+          Already have an account?
+          <a
+            id="login_page_link"
+            class="text-yellow-400 cursor-pointer hover:text-blue-600 hover:underline transition-all duration-100"
+            >Log In</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Login Form -->
+    <section class="h-screen flex justify-center items-center" id="login_form">
+      <div class="bg-violet-400 p-8 rounded-lg w-1/2 text-violet-700 space-y-5">
+        <h1 class="text-start font-bold text-3xl">Login</h1>
+        <form class="flex flex-col gap-y-3">
+          <label class="text-xl">
+            Email:
+            <input
+              type="text"
+              id="login_email"
+              class="bg-white rounded-lg text-black px-2 py-2 block mt-2 w-full outline-none"
+            />
+          </label>
+
+          <label class="text-xl">
+            Password:
+            <input
+              type="password"
+              id="login_password"
+              class="bg-white rounded-lg text-black px-2 py-2 block mt-2 w-full outline-none"
+            />
+          </label>
+
+          <button
+            type="submit"
+            class="bg-violet-700 text-white font-bold text-xl py-2 rounded-lg"
+            id="login_btn"
+          >
+            Login
+          </button>
+        </form>
+        <p class="text-xl">
+          Create a new account!
+          <a
+            id="signup_page_link"
+            class="text-yellow-400 cursor-pointer hover:text-blue-600 hover:underline transition-all duration-100"
+            >Sign Up</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Todos Section -->
+    <section
+      class="h-screen flex justify-center items-center"
+      id="todos_container"
+    >
+      <div class="bg-violet-400 p-8 rounded-lg w-1/2 text-violet-700 space-y-5">
+        <h1 class="text-start font-bold text-3xl">Your Todo List</h1>
+
+        <form class="space-y-5" id="todo_add_form">
+          <input
+            type="text"
+            class="bg-violet-300 text-violet-100 px-2 py-2 outline-none rounded-lg w-full text-xl placeholder:text-violet-50"
+            placeholder="Add a todo"
+            id="todo_input_element"
+          />
+
+          <button
+            type="submit"
+            class="bg-violet-700 text-white font-bold text-xl py-2 rounded-lg w-full cursor-pointer"
+            id="todo_add_btn"
+          >
+            Add Todo
+          </button>
+        </form>
+
+        <div class="space-y-2" id="todos_list"></div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
